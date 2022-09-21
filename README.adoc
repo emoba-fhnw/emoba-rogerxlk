@@ -1,0 +1,15 @@
+= Emoba Courseware Projekt
+
+Das Courseware-Projekt dient dazu alle Beispiele und Musterlösungen aus dem Unterricht zu verwalten und die Übungsbeispiele zu implementieren.
+
+Es besteht aus 2 Teilen
+
+* _app :_ Hier werden alle Android-Apps (und die dazugehörigen Tests) implementiert.
+* _kotlinplayground :_  In diesem Bereich werden die Kotlin-Beispiele, die unabhängig von der Android-Umgebung sind, implementiert.
+
+Initial sollten alle enthaltenen Beispiele gestartet werden.
+
+* Starten der App im Emulator und - falls vorhanden - auf einem angeschlossenen Android-Smartphone.
+* Starten von `kotlinplayground.module01.HelloKotlin` und `kotlinplayground.module01.SetupTest` im Bereich `kotlinplayground`.
+
+Zum Starten sollten keine Änderungen am Code notwendig sein. Falls es Probleme beim Starten gibt, ist die Arbeitsumgebung noch nicht vollständig aufgesetzt.
