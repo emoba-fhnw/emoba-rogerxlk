@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // ToDo: hier die emoba App eintragen, die gestartet werden soll
+        // ToDo: hier die emoba App eintragen, die gestartet werden soll!!
         app = HelloEmobaApp
 
         app.initialize(activity = this)
