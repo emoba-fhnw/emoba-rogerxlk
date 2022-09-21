@@ -21,6 +21,8 @@ object HelloEmobaApp : EmobaApp {
         message = "Guten Morgen Emoba"
     }
 
+
+    //@Composable referenziert, dass die Funktion für das GUI dient.
     @Composable
     override fun CreateUI() {
         AppUI(message)
