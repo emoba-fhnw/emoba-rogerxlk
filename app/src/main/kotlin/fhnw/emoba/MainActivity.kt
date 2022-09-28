@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import fhnw.emoba.modules.module01.helloemoba.HelloEmobaApp
+import fhnw.emoba.modules.module02.basics.ComposeBasicsApp
 
 
 /**
@@ -18,9 +19,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // ToDo: hier die emoba App eintragen, die gestartet werden soll!!
-        app = HelloEmobaApp
-
+        // TODO: hier die emoba App eintragen, die gestartet werden soll!!
+//            app = HelloEmobaApp
+          app = ComposeBasicsApp
         app.initialize(activity = this)
 
         setContent {
