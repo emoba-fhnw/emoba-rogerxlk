@@ -34,15 +34,19 @@ fun BasicsUI(title: String) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
             content = {
-                Text(text = lorem, fontSize = 16.sp,
-                    maxLines = 5, overflow = TextOverflow.Ellipsis)
+                Heading(text = "Lorem ipsum")
             })
 
         Row(modifier = Modifier
-            .padding(10.dp),
+            .padding(10.dp)
+            .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
             content = {
-            Divider()
-        })
+                Paragraph(text = lorem)
+            })
+
+        BasicDivider()
 
         Row(modifier = Modifier
             .padding(10.dp)
@@ -72,11 +76,7 @@ fun BasicsUI(title: String) {
                 Checkbox(checked = true, onCheckedChange = {})
             })
 
-        Row(modifier = Modifier
-            .paddingFromBaseline(top = 10.dp),
-            content = {
-            Divider()
-        })
+        BasicDivider()
 
         Row(content = {
             Spacer(modifier = Modifier.padding(100.dp))
@@ -95,7 +95,50 @@ fun BasicsUI(title: String) {
                     Text(text = "Save")
                 }
             })
+
+//        BasicRow {
+//            Button(onClick = { /*TODO*/ }) {
+//                Text(text = "Cancel")
+//            }
+//            Button(onClick = { /*TODO*/ }) {
+//                Text(text = "Save")
+//            }
+//        }
+
     })
+}
+
+@Composable
+private fun Heading(text:String){
+    Text(text = text,
+    fontSize = 42.sp)
+}
+
+@Composable
+private fun Paragraph(text: String){
+    Text(text = text,
+        fontSize = 16.sp,
+        maxLines = 5,
+        overflow = TextOverflow.Ellipsis
+        )
+}
+
+@Composable
+private fun BasicDivider(){
+    Divider(
+       modifier = Modifier.padding(top = 10.dp, bottom = 10.dp)
+    )
+}
+
+@Composable
+private fun BasicRow(content: @Composable RowScope.() -> Unit){
+    Row(modifier = Modifier
+        .padding(10.dp)
+        .fillMaxWidth(),
+    verticalAlignment = Alignment.CenterVertically,
+    horizontalArrangement = Arrangement.SpaceBetween,
+        content = {}
+    )
 }
 
 @Preview
