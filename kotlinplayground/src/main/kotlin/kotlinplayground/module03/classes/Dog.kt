@@ -1,8 +1,10 @@
 package kotlinplayground.module03.classes
 
-class Dog (weight: Double, alive: Boolean, age: Int) : Animal(weight, alive, age){
+class Dog(weight: Double = 0.0,
+          alive: Boolean = true,
+          age: Int = 0) : Animal(weight, alive, age){
 
-    override fun isGeriatric(age: Int, alive: Boolean){
-        if (alive && age > 10) return
+    override fun isGeriatric() : Boolean {
+        return alive && age > 10
     }
 }
