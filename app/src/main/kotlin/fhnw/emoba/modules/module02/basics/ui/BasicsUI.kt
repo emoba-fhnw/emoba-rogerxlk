@@ -8,7 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.Paragraph
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,7 +34,8 @@ fun BasicsUI(title: String) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
             content = {
-                Text(text = lorem, fontSize = 16.sp)
+                Text(text = lorem, fontSize = 16.sp,
+                    maxLines = 5, overflow = TextOverflow.Ellipsis)
             })
 
         Row(modifier = Modifier
