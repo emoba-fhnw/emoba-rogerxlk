@@ -18,39 +18,40 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import fhnw.emoba.modules.module04.viewmodel.model.CounterModel
 
 @Composable
-fun View() {  //todo: Jeder View braucht ein ViewModel
-    Scaffold(topBar                       = { Bar() },
-             floatingActionButton         = { FAB() },
+fun View(counterModel: CounterModel) {  //todo: Jeder View braucht ein ViewModel
+    Scaffold(topBar                       = { Bar(counterModel) },
+             floatingActionButton         = { FAB(counterModel) },
              floatingActionButtonPosition = FabPosition.End,
-             content                      = { Body(it) })
+             content                      = { Body(counterModel, it) })
 }
 
 @Composable
-private fun Bar() { //todo: Jeder View braucht ein ViewModel
-    TopAppBar(title = { Text("to be replaced") })
+private fun Bar(counterModel: CounterModel) { //todo: Jeder View braucht ein ViewModel
+    TopAppBar(title = { Text("${counterModel.title} ${counterModel.counter}") })
 }
 
 @Composable
-private fun Body(paddingValues: PaddingValues) { //todo: Jeder View braucht ein ViewModel
+private fun Body(counterModel: CounterModel, paddingValues: PaddingValues) { //todo: Jeder View braucht ein ViewModel
     Box(modifier = Modifier.padding(paddingValues)
                            .padding(top    = 100.dp,
                                     bottom = 100.dp)
                            .fillMaxSize()) {
-        Text(text     = "--",                               //todo
+        Text(text     = "${counterModel.counter}",                               //todo
              fontSize = 156.sp,
              modifier = Modifier.align(Alignment.TopCenter)
         )
-        Button(onClick  = { },                              //todo
+        Button(onClick  = {counterModel.increase()},                              //todo
                modifier = Modifier.align(Alignment.BottomCenter)) {
-            Text(text = "Click me")
+            Text(text = "Increase")
         }
     }
 }
 
 @Composable
-private fun FAB() { //todo: Jeder View braucht ein ViewModel
-    FloatingActionButton(onClick = {}) //todo
+private fun FAB(counterModel: CounterModel) { //todo: Jeder View braucht ein ViewModel
+    FloatingActionButton(onClick = {counterModel.reset()}) //todo
     { Icon(Icons.Filled.Clear, "Clear") }
 }

@@ -12,7 +12,7 @@ object CountriesApp : EmobaApp {
     override fun initialize(activity: ComponentActivity) {
         model = CountriesModel
         //todo: Bereitstellen der anzuzeigenden Laender, Kommentar entfernen.
-       //  model.loadCountries()
+         model.loadCountries()
     }
     
     @Composable

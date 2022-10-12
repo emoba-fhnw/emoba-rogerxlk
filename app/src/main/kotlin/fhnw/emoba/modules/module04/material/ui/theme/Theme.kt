@@ -5,9 +5,9 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import fhnw.emoba.modules.module04.material_excercise.ui.theme.typographyBig
+import fhnw.emoba.modules.module04.material.ui.theme.typographyBig
 
-private val appDarkColors = lightColors(
+private val appDarkColors = darkColors(
     //Background colors
     primary          = Color(0xFFBB86FC),
     primaryVariant   = Color(0xFF3700B3),
@@ -25,7 +25,7 @@ private val appDarkColors = lightColors(
     onError          = Color.Black,
 )
 
-private val appLightColors = darkColors(
+private val appLightColors = lightColors(
     //Background colors
         primary          = lightBlue500, //Color(0xFF6200EE),
         primaryVariant   = lightBlue600, //Color(0xFF3700B3),
