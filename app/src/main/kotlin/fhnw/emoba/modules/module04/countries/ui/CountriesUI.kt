@@ -1,8 +1,5 @@
 package fhnw.emoba.modules.module04.countries.ui
 
-import android.graphics.Paint.Align
-import android.preference.PreferenceActivity.Header
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import java.util.Locale
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,14 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import fhnw.emoba.modules.module04.countries.data.Country
 import fhnw.emoba.modules.module04.countries.model.CountriesModel
 
 @Composable
 fun CountriesUI(model: CountriesModel) {
-    //Alternative falls man nur wenig am Theme aendern will
+    //Alternative falls man nur wenig am Theme ändern will
     MaterialTheme(
         colors = lightColors(
             primary = Color(0xFF003399),
@@ -48,19 +45,15 @@ private fun Body(model: CountriesModel, paddingValues: PaddingValues) {
         contentAlignment = Alignment.Center
     ) {
 
-        Text("To be replaced")
+        // Todo: Verwenden Sie 'LazyColumn'
+        // https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#lazycolumn
         with(model) {
             LazyColumn {
                 items(model.countries) {
                     CountryPane(country = it)
                 }
             }
-
         }
-
-        // Todo: Verwenden Sie 'LazyColumn'
-        // https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#lazycolumn
-
     }
 }
 
@@ -71,16 +64,25 @@ private fun Body(model: CountriesModel, paddingValues: PaddingValues) {
 @Composable
 fun CountryPane(country: Country) {
     with(country) {
-        Card(modifier = Modifier.padding(5.dp)) {
+        Card(
+            modifier = Modifier
+                .padding(start = 10.dp, end = 10.dp, top = 5.dp, bottom = 5.dp)
+                .fillMaxWidth()
+        ) {
             Column() {
-                Row() {
+                Row(
+                    modifier = Modifier.padding(10.dp),
+                ) {
                     Heading(text = name)
                 }
-                Row() {
-                    Subheading(
-                        text = area.format("%.1f km2"),
-                        modifier = Modifier //TODO align(Alignment.CenterStart)
-                    )
+                Row(
+                    modifier = Modifier
+                        .padding(10.dp)
+                        .fillMaxSize(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                ) {
+                    Subheading(text = area.format("%.1f km2"), modifier = Modifier)
+                    Subheading(text = population.toString() + " Einw.", modifier = Modifier)
                 }
             }
         }
@@ -113,10 +115,9 @@ fun Number.format(formatPattern: String) = formatPattern.format(CH, this)
 
 
 //todo : Kommentare entfernen sobald Country und CountryPane vorhanden sind
-
-//@Preview(name = "Single Country Card")
-//@Composable
-//private fun Preview(){
-//    val lummerland = Country("Lummerland", 0.12, 5)
-//    CountryPane(lummerland)
-//}
+@Preview(name = "Single Country Card")
+@Composable
+private fun Preview() {
+    val lummerland = Country("Lummerland", 0.12, 5)
+    CountryPane(lummerland)
+}

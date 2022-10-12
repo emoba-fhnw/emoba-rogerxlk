@@ -15,5 +15,5 @@ object CountriesModel {
         countries = Repository.countries
     }
     
-    //wo sollte loadCountries aufgerufen werden?
+    //wo sollte loadCountries aufgerufen werden? -> Initializer!
 }
