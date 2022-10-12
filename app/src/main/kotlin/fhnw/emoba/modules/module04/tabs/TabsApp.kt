@@ -11,6 +11,7 @@ object TabsApp : EmobaApp {
     
     override fun initialize(activity: ComponentActivity) {
         model = TabsModel
+        model.loadAvailableTabs()
     }
     
     @Composable

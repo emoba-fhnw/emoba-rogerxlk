@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
 //      app = FunWithFlagsApp
 //      app = ViewModelApp
 //      app = MaterialApp
-      app = CountriesApp
-//        app = TabsApp
+//      app = CountriesApp
+        app = TabsApp
         app.initialize(activity = this)
 
         setContent {
