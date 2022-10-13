@@ -7,6 +7,7 @@ object TabsModel {
     
     // todo: was wird benoetigt fuer den Praesentationszustand?
     lateinit var availableTabs : List<AvailableTabs>
+    lateinit var selectedTab: AvailableTabs
 
     fun loadAvailableTabs(){
         availableTabs = AvailableTabs.values().asList()
