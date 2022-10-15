@@ -12,7 +12,8 @@ object BeersApp : EmobaApp {
     
     override fun initialize(activity: ComponentActivity) {
         model = BeersAppModel
-        //todo?
+        //what is needed?
+        model.loadBeers()
     }
 
     @Composable

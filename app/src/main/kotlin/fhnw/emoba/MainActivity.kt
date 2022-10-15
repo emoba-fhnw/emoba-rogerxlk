@@ -7,6 +7,7 @@ import fhnw.emoba.modules.module01.helloemoba.HelloEmobaApp
 import fhnw.emoba.modules.module02.basics.ComposeBasicsApp
 import fhnw.emoba.modules.module03.sheldonapp.FunWithFlagsApp
 import fhnw.emoba.modules.module03.sheldonapp.SheldonApp
+import fhnw.emoba.modules.module04.beers.BeersApp
 import fhnw.emoba.modules.module04.countries.CountriesApp
 import fhnw.emoba.modules.module04.countries.ui.CountriesUI
 import fhnw.emoba.modules.module04.material.MaterialApp
@@ -34,7 +35,8 @@ class MainActivity : AppCompatActivity() {
 //      app = ViewModelApp
 //      app = MaterialApp
 //      app = CountriesApp
-        app = TabsApp
+//        app = TabsApp
+        app = BeersApp
         app.initialize(activity = this)
 
         setContent {
