@@ -16,9 +16,10 @@ fun Year1955Screen(model: MultipleScreensModel) {
         nextScreen = Screen.YEAR_2015
     )
 
-    BackHandler(enabled = true) {
-        //TODO zurück in die Gegenwart (nach Hause)
-    }
+    BackHandler(enabled = true, onBack = {
+        // zurück in die Gegenwart (nach Hause)
+        model.currentScreen = Screen.HOME
+    })
 }
 
 @Preview(device = Devices.PIXEL_4)

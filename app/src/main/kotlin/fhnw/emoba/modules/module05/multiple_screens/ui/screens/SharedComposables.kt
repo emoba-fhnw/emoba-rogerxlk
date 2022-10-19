@@ -60,7 +60,7 @@ fun DefaultTopBar(
             },
             actions = {
                 if (nextScreen != null) {
-                    IconButton(onClick = { }) {  //todo
+                    IconButton(onClick = { currentScreen = nextScreen }) {  //todo
                         Icon(Icons.Filled.ArrowForward, "ArrowForward")
                     }
                 }
@@ -105,7 +105,7 @@ fun DrawerIcon(scaffoldState: ScaffoldState) {
 @Composable
 fun BackToScreenIcon(model: MultipleScreensModel, screen: Screen) {
     with(model) {
-        IconButton(onClick = { }) {  //todo: auf vorgängigen Screen wechseln
+        IconButton(onClick = { currentScreen = screen}) {  //todo: auf vorgängigen Screen wechseln
             Icon(Icons.Filled.ArrowBack, "Back")
         }
     }
@@ -133,7 +133,7 @@ fun DefaultBody(screen: Screen, paddingValues: PaddingValues) {
 fun GoHomeFAB(model: MultipleScreensModel) {
     with(model) {
         FloatingActionButton(
-            onClick = {}  //todo: auf Home Screen wechseln
+            onClick = { currentScreen = Screen.HOME }  //todo: auf Home Screen wechseln
         ) { Icon(Icons.Filled.Home, "Home") }
     }
 }
@@ -171,7 +171,7 @@ fun DrawerRow(model: MultipleScreensModel, screen: Screen) {
                 modifier = Modifier
                     .padding(5.dp)
                     .fillMaxWidth()
-                    .clickable(onClick = { })
+                    .clickable(onClick = { currentScreen = screen })
             ) //todo
         }
         Divider()

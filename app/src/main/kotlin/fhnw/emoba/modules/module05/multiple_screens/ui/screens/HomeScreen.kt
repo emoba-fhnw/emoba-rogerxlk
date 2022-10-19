@@ -32,7 +32,7 @@ private fun HomeTopBar(model: MultipleScreensModel, scaffoldState: ScaffoldState
         TopAppBar(
                 title          = { Text(Screen.HOME.title) },
                 navigationIcon = { DrawerIcon(scaffoldState = scaffoldState) },
-                actions        = { IconButton(onClick = {}) { //todo: auf naechsten Screen wechseln
+                actions        = { IconButton(onClick = { currentScreen = Screen.YEAR_1955}) { //todo: auf naechsten Screen wechseln
                     Icon(Icons.Filled.ArrowForward, "")
                 }
                 }
