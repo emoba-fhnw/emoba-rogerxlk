@@ -44,17 +44,16 @@ private fun Body(model: TabsModel, padding: PaddingValues) {
         val titles = model.availableTabs
         Column {
             TabRow(selectedTabIndex = state) {
-                titles.forEachIndexed { index, tabTitle ->
+                titles.forEachIndexed { index, tab ->
                     Tab(
-                        text = { Text(tabTitle.title) },
-                        selected = state == index,
-                        onClick = { state = index }
+                        text = { Text(tab.title) },
+                        selected = tab == selectedTab,
+                        onClick = { index }
                     )
                 }
             }
-            ContentBox(tabContent = AvailableTabs.FIRST)
 //            TODO: Kommentare entfernen
-//            ContentBox(tabContent = selectedTab)
+            ContentBox(tabContent = selectedTab)
         }
     }
 

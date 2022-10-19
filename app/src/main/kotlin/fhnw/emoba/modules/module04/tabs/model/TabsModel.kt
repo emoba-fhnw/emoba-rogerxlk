@@ -10,16 +10,10 @@ object TabsModel {
     
     // todo: was wird benoetigt fuer den Praesentationszustand?
     lateinit var availableTabs : List<AvailableTabs>
+
+    var selectedTab by mutableStateOf(AvailableTabs.FIRST)
+
     fun loadAvailableTabs(){
         availableTabs = AvailableTabs.values().asList()
     }
-
-//    lateinit var selectedTabs: AvailableTabs
-//    var selected by mutableStateOf(false)
-//        private set
-//
-//    fun selectedTab(){
-//        selected = !selected
-//    }
-
 }
