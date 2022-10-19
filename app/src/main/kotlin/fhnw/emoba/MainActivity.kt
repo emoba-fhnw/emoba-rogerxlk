@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
 //      app = ViewModelApp
 //      app = MaterialApp
 //      app = CountriesApp
-//        app = TabsApp
-        app = BeersApp
+        app = TabsApp
+//        app = BeersApp
         app.initialize(activity = this)
 
         setContent {

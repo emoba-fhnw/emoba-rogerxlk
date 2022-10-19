@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -15,7 +14,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import fhnw.emoba.modules.module04.tabs.enum.AvailableTabs
 import fhnw.emoba.modules.module04.tabs.model.TabsModel
-import fhnw.emoba.modules.module04.tabs.model.TabsModel.availableTabs
 
 @Composable
 fun TabsUI(model: TabsModel) {
@@ -55,8 +53,7 @@ private fun Body(model: TabsModel, padding: PaddingValues) {
                 }
             }
             ContentBox(tabContent = AvailableTabs.FIRST)
-            
-            //TODO: Kommentare entfernen
+//            TODO: Kommentare entfernen
 //            ContentBox(tabContent = selectedTab)
         }
     }
@@ -65,13 +62,13 @@ private fun Body(model: TabsModel, padding: PaddingValues) {
 
 @Composable
 private fun FAB(model: TabsModel) {
-    //TODO: ergaenzen mit FloatingActionButton
-    FloatingActionButton(onClick = { /*do something*/ }) {
+    //TODO:ergaenzen mit FloatingActionButton
+    FloatingActionButton(onClick = { "TBD" }) {
         Icon(Icons.Filled.Home, contentDescription = "Go to Home")
     }
 }
 
-//todo: Kommentare entfernen sobald 'AvailableTabs' fertig ist
+//Kommentare entfernen sobald 'AvailableTabs' fertig ist
 @Composable
 private fun ContentBox(tabContent: AvailableTabs) {
     Box(
@@ -81,8 +78,8 @@ private fun ContentBox(tabContent: AvailableTabs) {
         contentAlignment = Alignment.Center
     ) {
         Image(
-            painter = painterResource(tabContent.imageInt), //TODO: ergaenzen mit richtigem Inhalt
-            contentDescription = tabContent.title, //TODO: ergaenzen mit sinnvollem Inhalt
+            painter = painterResource(tabContent.imageInt), //ergaenzen mit richtigem Inhalt
+            contentDescription = tabContent.title, //ergaenzen mit sinnvollem Inhalt
             modifier = Modifier
                 .fillMaxSize()
                 .padding(30.dp)
