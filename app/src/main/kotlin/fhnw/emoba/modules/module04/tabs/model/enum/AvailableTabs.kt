@@ -1,4 +1,4 @@
-package fhnw.emoba.modules.module04.tabs.enum
+package fhnw.emoba.modules.module04.tabs.model.enum
 
 import fhnw.emoba.R
 
