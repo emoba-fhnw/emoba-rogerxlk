@@ -13,6 +13,10 @@ import fhnw.emoba.modules.module04.countries.ui.CountriesUI
 import fhnw.emoba.modules.module04.material.MaterialApp
 import fhnw.emoba.modules.module04.tabs.TabsApp
 import fhnw.emoba.modules.module04.viewmodel.ViewModelApp
+import fhnw.emoba.modules.module05.city.CityApp
+import fhnw.emoba.modules.module05.coordinates.CoordinatesApp
+import fhnw.emoba.modules.module05.multiple_screens.MultipleScreensApp
+import fhnw.emoba.modules.module05.squad.SquadApp
 
 
 /**
@@ -35,8 +39,12 @@ class MainActivity : AppCompatActivity() {
 //      app = ViewModelApp
 //      app = MaterialApp
 //      app = CountriesApp
-        app = TabsApp
-//        app = BeersApp
+//      app = TabsApp
+//      app = BeersApp
+//        app = MultipleScreensApp
+//        app = CoordinatesApp
+//        app = SquadApp
+        app = CityApp
         app.initialize(activity = this)
 
         setContent {
