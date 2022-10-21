@@ -11,7 +11,7 @@ object CityApp : EmobaApp {
     private lateinit var model: CityModel
     override fun initialize(activity: ComponentActivity) {
         val repo = CityRepository
-        repo.loadSquad(activity)
+        repo.loadCity(activity)
         model = CityModel(repo)
     }
 

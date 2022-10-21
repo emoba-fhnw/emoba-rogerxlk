@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets
 object CityRepository {
     lateinit var city: City
 
-    fun loadSquad(context: Context) {
+    fun loadCity(context: Context) {
         val cityAsString = loadFromAsset(context, "citylist.json")
 
         city = City(cityAsString)

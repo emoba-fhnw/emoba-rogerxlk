@@ -18,11 +18,11 @@ import fhnw.emoba.modules.module05.city.model.CityModel
 
 @Composable
 fun CityUI(model : CityModel){
-    with(model){
+    with(model.city){
         Box(contentAlignment = Alignment.Center,
             modifier         = Modifier.fillMaxSize()
         ){
-            Text(text  = title,
+            Text(text  = name,
                 style = TextStyle(fontSize = 42.sp)
             )
         }
