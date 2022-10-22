@@ -40,15 +40,15 @@ private fun Bar(model: TabsModel) {
 private fun Body(model: TabsModel, padding: PaddingValues) {
     with(model) {
         //TODO: mit TabsRow und Tab ersetzen !!Image Doesnt work yet!!
-        var state by remember { mutableStateOf(0) }
-        val titles = model.availableTabs
+
         Column {
-            TabRow(selectedTabIndex = state) {
-                titles.forEachIndexed { index, tab ->
+
+            TabRow(selectedTabIndex = selectedTab.ordinal) {
+                AvailableTabs.values().forEachIndexed { index, tab ->
                     Tab(
                         text = { Text(tab.title) },
-                        selected = tab == selectedTab,
-                        onClick = { index }
+                        selected = selectedTab.ordinal == index,
+                        onClick = { selectedTab = tab }
                     )
                 }
             }
@@ -62,7 +62,7 @@ private fun Body(model: TabsModel, padding: PaddingValues) {
 @Composable
 private fun FAB(model: TabsModel) {
     //TODO:ergaenzen mit FloatingActionButton
-    FloatingActionButton(onClick = { "TBD" }) {
+    FloatingActionButton(onClick = { model.selectedTab = AvailableTabs.FIRST }) {
         Icon(Icons.Filled.Home, contentDescription = "Go to Home")
     }
 }

@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import fhnw.emoba.modules.module04.beers.BeersApp
+import fhnw.emoba.modules.module04.material.MaterialApp
+import fhnw.emoba.modules.module04.tabs.TabsApp
 import fhnw.emoba.modules.module05.city.CityApp
 import fhnw.emoba.modules.module05.multiple_screens.MultipleScreensApp
 import fhnw.emoba.modules.module05.template.TemplateApp
@@ -29,12 +31,12 @@ class MainActivity : AppCompatActivity() {
 //      app = ViewModelApp
 //      app = MaterialApp
 //      app = CountriesApp
-//      app = TabsApp
+      app = TabsApp
 //      app = BeersApp
 //        app = MultipleScreensApp
 //        app = CoordinatesApp
 //        app = SquadApp
-        app = CityApp
+//        app = CityApp
 //        app = TemplateApp
         app.initialize(activity = this)
 

@@ -9,11 +9,6 @@ object TabsModel {
     val title = "Tabs Example App"
     
     // todo: was wird benoetigt fuer den Praesentationszustand?
-    lateinit var availableTabs : List<AvailableTabs>
-
     var selectedTab by mutableStateOf(AvailableTabs.FIRST)
 
-    fun loadAvailableTabs(){
-        availableTabs = AvailableTabs.values().asList()
-    }
 }
