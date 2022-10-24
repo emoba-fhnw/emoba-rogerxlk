@@ -1,30 +1,27 @@
 package fhnw.emoba.modules.module05.city.ui
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.constraintlayout.compose.ConstraintLayout
 import fhnw.emoba.modules.module05.city.model.CityModel
 
 @Composable
 fun CityUI(model : CityModel){
-    with(model.city){
+    with(model){
         Box(contentAlignment = Alignment.Center,
             modifier         = Modifier.fillMaxSize()
         ){
-            Text(text  = name,
-                style = TextStyle(fontSize = 42.sp)
-            )
+            Text(text = "${model.cities.size} Cities loaded")
+//            Text(text  = name,
+//                style = TextStyle(fontSize = 42.sp)
+//            )
+//            Text(text = "${model.cities.lon}")
+//            Text(text = "${model.cities.coord.lon}")
         }
     }
 }

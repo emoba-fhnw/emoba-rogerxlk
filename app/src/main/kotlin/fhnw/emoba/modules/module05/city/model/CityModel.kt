@@ -6,7 +6,7 @@ import fhnw.emoba.modules.module05.city.data.CityRepository
 class CityModel(private val repo : CityRepository) {
     val title = "Find your City"
 
-    val city: City
-    get() = repo.city
+    val cities: List<City>
+    get() = repo.cities
 
 }

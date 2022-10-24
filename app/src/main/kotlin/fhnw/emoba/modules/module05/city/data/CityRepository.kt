@@ -1,17 +1,24 @@
 package fhnw.emoba.modules.module05.city.data
 
 import android.content.Context
+import org.json.JSONArray
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 
 object CityRepository {
-    lateinit var city: City
+    lateinit var cities: List<City>
 
     fun loadCity(context: Context) {
-        val cityAsString = loadFromAsset(context, "citylist.json")
+        val citiesAsString = loadFromAsset(context, "citylist.json")
 
-        city = City(cityAsString)
+        val jsonArray = JSONArray(citiesAsString)
+
+        cities = buildList {
+            for(i in 0 until jsonArray.length()){
+                add(City(jsonArray.getJSONObject(i)))
+            }
+        }
     }
 
     /**

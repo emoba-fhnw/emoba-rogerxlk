@@ -9,9 +9,11 @@ import fhnw.emoba.modules.module05.city.ui.CityUI
 
 object CityApp : EmobaApp {
     private lateinit var model: CityModel
+
     override fun initialize(activity: ComponentActivity) {
         val repo = CityRepository
         repo.loadCity(activity)
+
         model = CityModel(repo)
     }
 
