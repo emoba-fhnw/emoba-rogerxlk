@@ -10,10 +10,14 @@ object CityRepository {
     lateinit var cities: List<City>
 
     fun loadCity(context: Context) {
+
+        //1. json file with in einem String abgespeichert
         val citiesAsString = loadFromAsset(context, "citylist.json")
 
+        //2. json objects werden in einem Array gespeichert
         val jsonArray = JSONArray(citiesAsString)
 
+        //3. itteriert über array und speichert jedes objekt (city) in einer MutableList (cities) ab
         cities = buildList {
             for(i in 0 until jsonArray.length()){
                 add(City(jsonArray.getJSONObject(i)))

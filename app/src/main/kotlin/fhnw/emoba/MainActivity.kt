@@ -31,12 +31,12 @@ class MainActivity : AppCompatActivity() {
 //      app = ViewModelApp
 //      app = MaterialApp
 //      app = CountriesApp
-      app = TabsApp
+//      app = TabsApp
 //      app = BeersApp
 //        app = MultipleScreensApp
 //        app = CoordinatesApp
 //        app = SquadApp
-//        app = CityApp
+        app = CityApp
 //        app = TemplateApp
         app.initialize(activity = this)
 
