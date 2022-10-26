@@ -69,6 +69,12 @@ dependencies {
     // fuer den Layout Inspector
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
+    //android exoplayer (für nicht youtube videos)
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
+    
+    //android Player - androidYoutubePlayer
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0'
+
 
     //Unit tests
     testImplementation 'junit:junit:4.13.2'
