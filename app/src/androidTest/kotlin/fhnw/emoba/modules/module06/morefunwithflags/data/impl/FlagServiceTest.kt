@@ -19,7 +19,7 @@ internal class FlagServiceTest{
     fun testRequestFlag(){
         //given
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        val service = LocalFlagService(appContext) //todo: umstellen auf RemoteFlagService
+        val service = RemoteFlagService() //todo: umstellen auf RemoteFlagService
        // val service = RemoteFlagService()
         
         //when
