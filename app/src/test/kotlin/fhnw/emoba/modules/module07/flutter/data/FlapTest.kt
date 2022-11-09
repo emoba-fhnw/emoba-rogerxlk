@@ -9,7 +9,7 @@ internal class FlapTest {
 
     @Test
     fun testAll() {
-/*
+
         //given
         val sender  = "Grossvater"
         val message = "Wo ist das Heidi?"
@@ -24,7 +24,6 @@ internal class FlapTest {
         assertEquals(message, json.getString("message"))
         assertEquals(flap1, flap2)
 
-*/
     }
 
 }
