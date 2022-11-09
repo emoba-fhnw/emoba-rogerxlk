@@ -34,7 +34,7 @@ class CityTest {
             assertEquals("Verscio", name)
             assertEquals("", state)
             assertEquals("CH", country)
-            assertEquals("2", coord.size)
+            assertEquals("2", coord.lon)
         }
     }
 }

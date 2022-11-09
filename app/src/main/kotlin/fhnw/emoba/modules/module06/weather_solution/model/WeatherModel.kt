@@ -50,7 +50,7 @@ class WeatherModel(val cityRepo: CityRepository, val weatherService: WeatherServ
     }
 
     //results from searching the repo:
-    var currentCityList: List<City> by mutableStateOf(emptyList())
+    var     currentCityList: List<City> by mutableStateOf(emptyList())
 
     var favoriteCities: List<City> by mutableStateOf(
         listOf(

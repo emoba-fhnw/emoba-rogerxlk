@@ -36,7 +36,7 @@ object CoordinatesModel {
         val minutes  = ((absValue - degree) * 60.0).toInt()
         val seconds  = (absValue - degree - minutes / 60.0) * 3600.0
         
-        return "${degree}° ${minutes}′ ${String.format(Locale.ENGLISH, "%.4f", seconds)}″"
+        return "${degree}° ${minutes}′ ${String.format(Locale.ENGLISH, "\"%.4f\"", seconds)}″"
     }
     
 }

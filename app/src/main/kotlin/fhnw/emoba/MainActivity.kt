@@ -9,6 +9,13 @@ import fhnw.emoba.modules.module04.tabs.TabsApp
 import fhnw.emoba.modules.module05.city.CityApp
 import fhnw.emoba.modules.module05.multiple_screens.MultipleScreensApp
 import fhnw.emoba.modules.module05.template.TemplateApp
+import fhnw.emoba.modules.module06.anthems_solution.AnthemsApp
+import fhnw.emoba.modules.module06.morefunwithflags.MoreFunWithFlagsApp
+import fhnw.emoba.modules.module06.morefunwithflags.ui.MoreFunWithFlagsUI
+import fhnw.emoba.modules.module06.video_solution.VideoApp_Solution
+import fhnw.emoba.modules.module06.video_solution.ui.VideoPlayer
+import fhnw.emoba.modules.module06.weather_solution.WeatherApp_Solution
+import fhnw.emoba.modules.module07.mqtt.MqttApp
 
 
 /**
@@ -36,8 +43,13 @@ class MainActivity : AppCompatActivity() {
 //        app = MultipleScreensApp
 //        app = CoordinatesApp
 //        app = SquadApp
-        app = CityApp
+//        app = CityApp
 //        app = TemplateApp
+//        app = MoreFunWithFlagsApp
+//        app = AnthemsApp
+//        app = VideoApp_Solution
+//        app = WeatherApp_Solution
+        app = MqttApp
         app.initialize(activity = this)
 
         setContent {
