@@ -10,6 +10,10 @@ import java.util.*
 /**
  * ACHTUNG: Das ist nur eine erste Konfiguration eines Mqtt-Brokers.
  *
+ * Connect, publish, subscribe
+ *
+ * Dieser Code kann zu 95-100% wiederverwendet werden
+ *
  * Dient vor allem dazu mit den verschiedenen Parametern experimentieren zu können
  *
  * siehe die Doku:

@@ -23,7 +23,7 @@ object MqttModel {
     fun publish(){
         mqttConnector.publish(topic       = topic,
                               message     = "hello",
-                              onPublished = { messagesPublished++ })
+                              onPublished = { messagesPublished++ }) //zählt erst hoch wenn message accepted from broker
     }
     
 }
