@@ -33,7 +33,7 @@ class MqttConnector (mqttBroker: String,
         .buildAsync()
     
     fun connectAndSubscribe(topic:              String,
-                            onNewMessage:       (String) -> Unit = {},
+                            onNewMessage:       (String) -> Flap = {Flap(sender, message = )},
                             onConnectionFailed: () -> Unit = {}) {
         client.connectWith()
             .cleanStart(true)
@@ -49,7 +49,7 @@ class MqttConnector (mqttBroker: String,
     }
 
     fun subscribe(topic:        String,
-                  onNewMessage: (String) -> Unit){
+                  onNewMessage: (String) -> Flap){
         client.subscribeWith()
             .topicFilter(topic)
             .qos(qos)
@@ -59,12 +59,13 @@ class MqttConnector (mqttBroker: String,
     }
 
     fun publish(topic:       String,
-                message:     String,
+                flap:        Flap,
                 onPublished: () -> Unit = {},
                 onError:     () -> Unit = {}) {
         client.publishWith()
             .topic(topic)
-            .payload(message.asPayload())
+            .payload(flap.sender.asPayload())
+            .payload(flap.message.asPayload())
             .qos(qos)
             .retain(false)  //Message soll nicht auf dem Broker gespeichert werden
             .messageExpiryInterval(120)
