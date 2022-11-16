@@ -1,5 +1,6 @@
 package fhnw.emoba.modules.module08.phrasomat.model
 
+import androidx.compose.runtime.mutableStateListOf
 import kotlin.random.Random
 
 object PhrasOMatModel {
@@ -8,7 +9,7 @@ object PhrasOMatModel {
     val title = "PhrasOMat"
 
     //todo 1: geeignete Liste fuer die Phrasen definieren
-
+    var allPhrases = mutableStateListOf<String>() //bei FlatterApp hier <Flatter>
 
 
     //todo 2: in Data-Layer verschieben
@@ -34,7 +35,9 @@ object PhrasOMatModel {
 
 
     //todo 1: Funktion, die neue Phrase einer Liste hinzufuegt
-
+    fun getPhrase(){
+        allPhrases.add(generatePhrase())
+    }
 
 
     //todo 2: PhrasenGenerator asnychron aufrufen

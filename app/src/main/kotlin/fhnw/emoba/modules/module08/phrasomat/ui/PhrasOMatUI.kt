@@ -5,6 +5,9 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Divider
 import androidx.compose.material.FabPosition
 import androidx.compose.material.FloatingActionButton
@@ -47,13 +50,16 @@ private fun Bar(model: PhrasOMatModel) {
 
 @Composable
 private fun Body(model: PhrasOMatModel, paddingValues: PaddingValues) {
-    ConstraintLayout(Modifier.padding(paddingValues).fillMaxSize()) {
+    ConstraintLayout(
+        Modifier
+            .padding(paddingValues)
+            .fillMaxSize()) {
         val margin = 20.dp
 
         val (phrasesBox) = createRefs()
 
         //todo 1: emptyList ersetzen
-        PhrasesBox(phrases  = emptyList(),
+        PhrasesBox(phrases  = model.allPhrases,
                    modifier = Modifier.constrainAs(phrasesBox) {
                       start.linkTo(parent.start, margin)
                       top.linkTo(parent.top, margin)
@@ -76,13 +82,19 @@ private fun PhrasesBox(phrases: List<String>, modifier: Modifier){
     else {
         // todo 1: LazyColumn mit allen bisher erzeugten Phrasen
         // SinglePhrase benutzen
+        LazyColumn(state = LazyListState(phrases.size)){
+            items(phrases){
+                SinglePhrase(phrase = it)
+            }
+        }
     }
 }
 
 @Composable
 private fun SinglePhrase(phrase: String){
-    Box(modifier = Modifier.height(80.dp)
-                           .padding(vertical = 5.dp, horizontal = 10.dp)){
+    Box(modifier = Modifier
+        .height(80.dp)
+        .padding(vertical = 5.dp, horizontal = 10.dp)){
         Text(text     = phrase,
              modifier = Modifier.align(Alignment.CenterStart))
     }
@@ -92,7 +104,7 @@ private fun SinglePhrase(phrase: String){
 @Composable
 private fun FAB(model: PhrasOMatModel) {
     with(model) {
-        FloatingActionButton(onClick = {  })  //todo neue Phrase generieren lassen
+        FloatingActionButton(onClick = { getPhrase() })  //todo neue Phrase generieren lassen
            { Icon(Icons.Filled.Add, "neue Phrase") }
     }
 }
