@@ -3,6 +3,7 @@ package fhnw.emoba.modules.module07.flutter.data
 import com.hivemq.client.mqtt.datatypes.MqttQos
 import com.hivemq.client.mqtt.mqtt5.Mqtt5Client
 import com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5Publish
+import fhnw.emoba.modules.module07.flutter.model.FlutterModel
 import java.nio.charset.StandardCharsets
 import java.util.*
 
@@ -24,17 +25,26 @@ import java.util.*
  * http://www.hivemq.com/demos/websocket-client/
  *
  */
-class MqttConnector (mqttBroker: String,
-                     val qos: MqttQos = MqttQos.EXACTLY_ONCE){
+class MqttConnector(
+    mqttBroker: String,
+    val qos: MqttQos = MqttQos.EXACTLY_ONCE
+) {
 
     private val client = Mqtt5Client.builder()
         .serverHost(mqttBroker)
         .identifier(UUID.randomUUID().toString())
         .buildAsync()
-    
-    fun connectAndSubscribe(topic:              String,
-                            onNewMessage:       (String) -> Flap = {Flap(sender, message = )},
-                            onConnectionFailed: () -> Unit = {}) {
+
+    fun connectAndSubscribe(
+        topic: String,
+        onNewMessage: (String) ->
+        Flap = {
+            Flap(
+                sender = FlutterModel.sender, message = FlutterModel.publishMessage
+            )
+        },
+        onConnectionFailed: () -> Unit = {}
+    ) {
         client.connectWith()
             .cleanStart(true)
             .keepAlive(30)
@@ -48,8 +58,10 @@ class MqttConnector (mqttBroker: String,
             }
     }
 
-    fun subscribe(topic:        String,
-                  onNewMessage: (String) -> Flap){
+    fun subscribe(
+        topic: String,
+        onNewMessage: (String) -> Flap
+    ) {
         client.subscribeWith()
             .topicFilter(topic)
             .qos(qos)
@@ -58,10 +70,12 @@ class MqttConnector (mqttBroker: String,
             .send()
     }
 
-    fun publish(topic:       String,
-                flap:        Flap,
-                onPublished: () -> Unit = {},
-                onError:     () -> Unit = {}) {
+    fun publish(
+        topic: String,
+        flap: Flap,
+        onPublished: () -> Unit = {},
+        onError: () -> Unit = {}
+    ) {
         client.publishWith()
             .topic(topic)
             .payload(flap.sender.asPayload())
@@ -70,14 +84,13 @@ class MqttConnector (mqttBroker: String,
             .retain(false)  //Message soll nicht auf dem Broker gespeichert werden
             .messageExpiryInterval(120)
             .send()
-            .whenComplete {_, throwable ->
-                if(throwable != null){
+            .whenComplete { _, throwable ->
+                if (throwable != null) {
                     onError()
-                }
-                else {
+                } else {
                     onPublished()
                 }
-             }
+            }
     }
 
     fun disconnect() {
@@ -88,5 +101,5 @@ class MqttConnector (mqttBroker: String,
 }
 
 // praktische Extension Functions
-private fun String.asPayload() : ByteArray = toByteArray(StandardCharsets.UTF_8)
-private fun Mqtt5Publish.payloadAsString() : String = String(payloadAsBytes, StandardCharsets.UTF_8)
+private fun String.asPayload(): ByteArray = toByteArray(StandardCharsets.UTF_8)
+private fun Mqtt5Publish.payloadAsString(): String = String(payloadAsBytes, StandardCharsets.UTF_8)

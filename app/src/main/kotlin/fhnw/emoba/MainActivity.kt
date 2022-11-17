@@ -7,6 +7,7 @@ import fhnw.emoba.modules.module04.beers.BeersApp
 import fhnw.emoba.modules.module04.material.MaterialApp
 import fhnw.emoba.modules.module04.tabs.TabsApp
 import fhnw.emoba.modules.module05.city.CityApp
+import fhnw.emoba.modules.module05.coordinates.CoordinatesApp
 import fhnw.emoba.modules.module05.multiple_screens.MultipleScreensApp
 import fhnw.emoba.modules.module05.template.TemplateApp
 import fhnw.emoba.modules.module06.anthems_solution.AnthemsApp
@@ -17,6 +18,9 @@ import fhnw.emoba.modules.module06.video_solution.ui.VideoPlayer
 import fhnw.emoba.modules.module06.weather_solution.WeatherApp_Solution
 import fhnw.emoba.modules.module07.flutter.FlutterApp
 import fhnw.emoba.modules.module07.mqtt.MqttApp
+import fhnw.emoba.modules.module08.lotto.LottoApp
+import fhnw.emoba.modules.module08.phrasomat.PhrasOMat
+import fhnw.emoba.modules.module08.startrek.StarTrekApp
 
 
 /**
@@ -52,6 +56,9 @@ class MainActivity : AppCompatActivity() {
 //        app = WeatherApp_Solution
 //        app = MqttApp
         app = FlutterApp
+//        app = StarTrekApp
+//        app = PhrasOMat
+//        app = LottoApp
         app.initialize(activity = this)
 
         setContent {
