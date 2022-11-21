@@ -49,9 +49,7 @@ private fun Body(model: FlutterModel, paddingValues: PaddingValues) {
             Info(mqttBroker)
             Info(topic)
             MessagesBox(model, Modifier.weight(1.0f))
-           // Box(Modifier.fillMaxWidth()) {
                 PublishMessage(model)
-           // }
         }
     }
 }
