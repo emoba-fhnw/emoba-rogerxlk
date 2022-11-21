@@ -4,22 +4,18 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import fhnw.emoba.modules.module07.flutter.data.Flap
@@ -46,16 +42,16 @@ private fun Body(model: FlutterModel, paddingValues: PaddingValues) {
     with(model) {
         Column(
             Modifier
-                .fillMaxSize()
                 .padding(paddingValues)
+                .fillMaxSize()
                 .padding(20.dp)
         ) {
             Info(mqttBroker)
             Info(topic)
-            MessagesBox(model)
-            Box(Modifier.fillMaxSize()) {
+            MessagesBox(model, Modifier.weight(1.0f))
+           // Box(Modifier.fillMaxWidth()) {
                 PublishMessage(model)
-            }
+           // }
         }
     }
 }
@@ -70,7 +66,7 @@ private fun Info(text: String) {
 }
 
 @Composable
-private fun MessagesBox(model: FlutterModel) {
+private fun MessagesBox(model: FlutterModel, modifier: Modifier) {
     with(model) {
         if (subscribedMessages.isEmpty()) {
             Text(
@@ -78,9 +74,11 @@ private fun MessagesBox(model: FlutterModel) {
                 style = MaterialTheme.typography.body2
             )
         } else {
-            LazyColumn(state = LazyListState(subscribedMessages.size), modifier = Modifier.fillMaxSize()) {
+            LazyColumn(state = LazyListState(subscribedMessages.size),
+                modifier = modifier
+            ) {
                 items(subscribedMessages) {
-                    SingleMessage(model, flap = it)
+                    SingleMessage(flap = it)
                 }
             }
         }
@@ -88,7 +86,7 @@ private fun MessagesBox(model: FlutterModel) {
 }
 
 @Composable
-private fun SingleMessage(model: FlutterModel, flap: Flap) {
+private fun SingleMessage(flap: Flap) {
     Box(
         modifier = Modifier
             .height(80.dp)
@@ -98,20 +96,16 @@ private fun SingleMessage(model: FlutterModel, flap: Flap) {
             modifier = Modifier.align(Alignment.CenterStart)
         ) {
             Row() {
-                flap?.let {
-                    Text(
-                        text = it.sender,
-                        fontSize = 10.sp,
-                    )
-                }
+                Text(
+                    text = flap.sender,
+                    fontSize = 10.sp,
+                )
             }
             Row(modifier = Modifier.padding(top = 5.dp)) {
-                flap?.let {
-                    Text(
-                        text = it.message,
-                        fontSize = 15.sp,
-                    )
-                }
+                Text(
+                    text = flap.message,
+                    fontSize = 15.sp,
+                )
             }
         }
     }
@@ -123,8 +117,10 @@ private fun SingleMessage(model: FlutterModel, flap: Flap) {
 fun PublishMessage(model: FlutterModel) {
     val keyboard = LocalSoftwareKeyboardController.current
     with(model) {
+
         OutlinedTextField(
             modifier = Modifier
+                .height(50.dp)
                 .fillMaxWidth(),
             value = publishMessage,
             onValueChange = { newText ->
