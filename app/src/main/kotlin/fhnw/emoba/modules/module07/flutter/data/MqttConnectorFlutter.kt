@@ -38,7 +38,7 @@ class MqttConnectorFlutter(
 
     fun connectAndSubscribe(
         topic: String,
-        onNewMessage: (Flap) -> Unit, //todo
+        onNewMessage: (Flap) -> Unit, //todo: can be done in Model as well! (String)
         onConnectionFailed: () -> Unit = {}
     ) {
         client.connectWith()
@@ -56,25 +56,25 @@ class MqttConnectorFlutter(
 
     fun subscribe(
         topic: String,
-        onNewMessage: (Flap) -> Unit
+        onNewMessage: (Flap) -> Unit //todo: can be done in Model as well! (String)
     ) {
         client.subscribeWith()
             .topicFilter(topic)
             .qos(qos)
             .noLocal(true)
-            .callback { onNewMessage(Flap(JSONObject(it.payloadAsString()))) }
+            .callback { onNewMessage(Flap(JSONObject(it.payloadAsString()))) } //todo: can be done in Model as well!
             .send()
     }
 
     fun publish(
         topic: String,
-        flap: Flap,
+        flap: Flap, //todo: can be done in Model as well! -> message: String
         onPublished: () -> Unit = {},
         onError: () -> Unit = {}
     ) {
         client.publishWith()
             .topic(topic)
-            .payload(flap.asJsonString().asPayload()) //todo
+            .payload(flap.asJsonString().asPayload()) //todo: can be done in Model as well! -> payload(message.asPayload())
             .qos(qos)
             .retain(false)  //Message soll nicht auf dem Broker gespeichert werden
             .messageExpiryInterval(120)
