@@ -32,6 +32,6 @@ object FlutterModel {
         val flap = Flap("Urs", publishMessage)
         mqttConnector.publish(topic = topic,
             flap = flap,
-            onPublished = { messagesPublished++ }) //zählt erst hoch wenn message accepted from broker
+            onPublished = { subscribedMessages.add(flap) }) //zählt erst hoch wenn message accepted from broker
     }
 }
