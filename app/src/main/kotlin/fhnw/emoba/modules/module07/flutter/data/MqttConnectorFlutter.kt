@@ -4,6 +4,7 @@ import com.hivemq.client.mqtt.datatypes.MqttQos
 import com.hivemq.client.mqtt.mqtt5.Mqtt5Client
 import com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5Publish
 import fhnw.emoba.modules.module07.flutter.model.FlutterModel
+import org.json.JSONObject
 import java.nio.charset.StandardCharsets
 import java.util.*
 
@@ -25,7 +26,7 @@ import java.util.*
  * http://www.hivemq.com/demos/websocket-client/
  *
  */
-class MqttConnector(
+class MqttConnectorFlutter(
     mqttBroker: String,
     val qos: MqttQos = MqttQos.EXACTLY_ONCE
 ) {
@@ -37,12 +38,7 @@ class MqttConnector(
 
     fun connectAndSubscribe(
         topic: String,
-        onNewMessage: (String) ->
-        Flap = {
-            Flap(
-                sender = FlutterModel.sender, message = FlutterModel.publishMessage
-            )
-        },
+        onNewMessage: (Flap) -> Unit, //todo
         onConnectionFailed: () -> Unit = {}
     ) {
         client.connectWith()
@@ -60,13 +56,13 @@ class MqttConnector(
 
     fun subscribe(
         topic: String,
-        onNewMessage: (String) -> Flap
+        onNewMessage: (Flap) -> Unit
     ) {
         client.subscribeWith()
             .topicFilter(topic)
             .qos(qos)
             .noLocal(true)
-            .callback { onNewMessage(it.payloadAsString()) }
+            .callback { onNewMessage(Flap(JSONObject(it.payloadAsString()))) }
             .send()
     }
 
@@ -78,8 +74,7 @@ class MqttConnector(
     ) {
         client.publishWith()
             .topic(topic)
-            .payload(flap.sender.asPayload())
-            .payload(flap.message.asPayload())
+            .payload(flap.asJsonString().asPayload()) //todo
             .qos(qos)
             .retain(false)  //Message soll nicht auf dem Broker gespeichert werden
             .messageExpiryInterval(120)

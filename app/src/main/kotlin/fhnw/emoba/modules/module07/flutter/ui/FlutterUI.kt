@@ -78,7 +78,7 @@ private fun MessagesBox(model: FlutterModel) {
                 style = MaterialTheme.typography.body2
             )
         } else {
-            LazyColumn(state = LazyListState(subscribedMessages.size)) {
+            LazyColumn(state = LazyListState(subscribedMessages.size), modifier = Modifier.fillMaxSize()) {
                 items(subscribedMessages) {
                     SingleMessage(model, flap = it)
                 }
@@ -98,7 +98,7 @@ private fun SingleMessage(model: FlutterModel, flap: Flap) {
             modifier = Modifier.align(Alignment.CenterStart)
         ) {
             Row() {
-                model.flap?.let {
+                flap?.let {
                     Text(
                         text = it.sender,
                         fontSize = 10.sp,
@@ -106,7 +106,7 @@ private fun SingleMessage(model: FlutterModel, flap: Flap) {
                 }
             }
             Row(modifier = Modifier.padding(top = 5.dp)) {
-                model.flap?.let {
+                flap?.let {
                     Text(
                         text = it.message,
                         fontSize = 15.sp,
