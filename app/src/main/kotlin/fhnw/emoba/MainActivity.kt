@@ -21,6 +21,7 @@ import fhnw.emoba.modules.module07.mqtt.MqttApp
 import fhnw.emoba.modules.module08.lotto.LottoApp
 import fhnw.emoba.modules.module08.phrasomat.PhrasOMat
 import fhnw.emoba.modules.module08.startrek.StarTrekApp
+import fhnw.emoba.modules.module09.gps.GpsApp
 
 
 /**
@@ -55,10 +56,11 @@ class MainActivity : AppCompatActivity() {
 //        app = VideoApp_Solution
 //        app = WeatherApp_Solution
 //        app = MqttApp
-        app = FlutterApp
+//        app = FlutterApp
 //        app = StarTrekApp
 //        app = PhrasOMat
 //        app = LottoApp
+        app = GpsApp
         app.initialize(activity = this)
 
         setContent {

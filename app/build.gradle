@@ -75,6 +75,9 @@ dependencies {
     //android Player - androidYoutubePlayer
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0'
 
+    //local services
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
 
     //Unit tests
     testImplementation 'junit:junit:4.13.2'
