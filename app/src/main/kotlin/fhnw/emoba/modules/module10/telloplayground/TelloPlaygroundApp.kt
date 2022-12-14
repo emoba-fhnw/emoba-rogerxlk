@@ -16,7 +16,7 @@ object TelloPlaygroundApp : EmobaApp {
         val realTelloStatePort   = 8890
         val realTelloVideoPort   = 11111
 
-        val connector = TelloConnector(ip          = "10.223.13.208",
+        val connector = TelloConnector(ip          = "10.207.30.22",
                                        commandPort = 8889,
                                        statePort   = 8890)
         model = TelloModel(connector)
@@ -26,5 +26,7 @@ object TelloPlaygroundApp : EmobaApp {
     override fun CreateUI() {
         TelloUI(model)
     }
+
+//    cmd line: nc -u 10.207.30.22 8889
 
 }
