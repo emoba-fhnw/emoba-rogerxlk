@@ -28,7 +28,7 @@ class TelloConnector(private val ip:          String,
     fun takeoff(        onFinished: (response: String) -> Unit = {}) = onFinished(sendCommandAndWait("takeoff"))
     fun land   (        onFinished: (response: String) -> Unit = {}) = onFinished(sendCommandAndWait("land"))
     fun forward(x: Int, onFinished: (response: String) -> Unit = {}) = onFinished(sendCommandAndWait("forward $x"))
-
+    fun backward(x: Int, onFinished: (response: String) -> Unit = {}) = onFinished(sendCommandAndWait("backward $x"))
 
     // fire and forget commands
     fun rc(leftRight: Int, forwardBack: Int, upDown: Int, yaw: Int) = fireAndForgetCommand("rc $leftRight $forwardBack $upDown $yaw")
