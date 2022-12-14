@@ -10,7 +10,7 @@ import org.json.JSONObject
 
 object FlutterModel {
     val title = "MqttApp"
-    val mqttBroker = "broker.hivemq.com"
+        val mqttBroker = "broker.hivemq.com"
     val topic = "fhnw/emoba/flutterapp"
 
 
@@ -21,7 +21,7 @@ object FlutterModel {
 
     var subscribedMessages = mutableStateListOf<Flap>()
     var publishMessage by mutableStateOf("")
-    var flap: Flap? by mutableStateOf(null)
+    var flap: Flap? by mutableStateOf(null)//zählt erst hoch wenn message accepted from broker
 
     fun connectAndSubscribe() {
         mqttConnector.connectAndSubscribe(topic = topic,
@@ -32,6 +32,6 @@ object FlutterModel {
         val flap = Flap("Urs", publishMessage)
         mqttConnector.publish(topic = topic,
             flap = flap,
-            onPublished = { subscribedMessages.add(flap) }) //zählt erst hoch wenn message accepted from broker
+            onPublished = { subscribedMessages.add(flap) })
     }
 }

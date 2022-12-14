@@ -21,7 +21,9 @@ import fhnw.emoba.modules.module07.mqtt.MqttApp
 import fhnw.emoba.modules.module08.lotto.LottoApp
 import fhnw.emoba.modules.module08.phrasomat.PhrasOMat
 import fhnw.emoba.modules.module08.startrek.StarTrekApp
+import fhnw.emoba.modules.module09.fileio.FileIOApp
 import fhnw.emoba.modules.module09.gps.GpsApp
+import fhnw.emoba.modules.module09.photobooth.PhotoBoothApp
 
 
 /**
@@ -60,7 +62,9 @@ class MainActivity : AppCompatActivity() {
 //        app = StarTrekApp
 //        app = PhrasOMat
 //        app = LottoApp
-        app = GpsApp
+//        app = GpsApp
+//        app = PhotoBoothApp
+//        app = FileIOApp
         app.initialize(activity = this)
 
         setContent {
