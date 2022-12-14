@@ -24,6 +24,7 @@ import fhnw.emoba.modules.module08.startrek.StarTrekApp
 import fhnw.emoba.modules.module09.fileio.FileIOApp
 import fhnw.emoba.modules.module09.gps.GpsApp
 import fhnw.emoba.modules.module09.photobooth.PhotoBoothApp
+import fhnw.emoba.modules.module10.telloplayground.TelloPlaygroundApp
 
 
 /**
@@ -65,6 +66,7 @@ class MainActivity : AppCompatActivity() {
 //        app = GpsApp
 //        app = PhotoBoothApp
 //        app = FileIOApp
+        app = TelloPlaygroundApp
         app.initialize(activity = this)
 
         setContent {
