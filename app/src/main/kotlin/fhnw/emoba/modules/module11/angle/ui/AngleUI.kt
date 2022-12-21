@@ -88,7 +88,9 @@ private fun AngleControl(model: AngleModel, modifier: Modifier) {
 
                 .pointerInput(Unit) {
                     // detectTapGestures und onPress verwenden
-
+                    detectTapGestures(
+                        onPress = { offset -> model.angle = angleFromXY(canvasCenter, offset) }
+                    )
                     //fuer die Umrechnung der touchPosition auf den Winkel  'angleFromXY' verwenden
                 }
 
@@ -99,12 +101,11 @@ private fun AngleControl(model: AngleModel, modifier: Modifier) {
                         onDragStart = { offset -> delta = offset },
                         onDrag = { change, dragAmount ->
                             // dragAmount ist die Differenz zum letzten Drag-Event
-
                             // todo 2: dragAmount zum delta (Gesamtverschiebung seit dem DragStart) hinzuzaehlen
-
+                            delta += dragAmount
 
                             //todo 2: angle auf dem model setzen (angleFromXY verwenden)
-
+                            model.angle = angleFromXY(canvasCenter, delta)
                         }
                     )
                 },
