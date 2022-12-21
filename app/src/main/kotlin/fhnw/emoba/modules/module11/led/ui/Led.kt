@@ -16,6 +16,8 @@ fun Led(ledColor: Color,
         on:       Boolean,
         modifier: Modifier){
 
+    //modifier verwendet anstelle von "densitiy" -> siehe CanvasPane.
+    // Sinnvollver density, wenn das Design an einer bestimmten Stelle und Grösse platziert werden soll
     Canvas(modifier = modifier,
            onDraw   = {
 
