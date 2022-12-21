@@ -25,6 +25,10 @@ import fhnw.emoba.modules.module09.fileio.FileIOApp
 import fhnw.emoba.modules.module09.gps.GpsApp
 import fhnw.emoba.modules.module09.photobooth.PhotoBoothApp
 import fhnw.emoba.modules.module10.telloplayground.TelloPlaygroundApp
+import fhnw.emoba.modules.module11.angle.AngleApp
+import fhnw.emoba.modules.module11.canvasplayground.CanvasPlaygroundApp
+import fhnw.emoba.modules.module11.goofieball.GoofieBall
+import fhnw.emoba.modules.module11.led.LedApp
 
 
 /**
@@ -66,7 +70,11 @@ class MainActivity : AppCompatActivity() {
 //        app = GpsApp
 //        app = PhotoBoothApp
 //        app = FileIOApp
-        app = TelloPlaygroundApp
+//        app = TelloPlaygroundApp
+//        app = CanvasPlaygroundApp
+        app = GoofieBall
+//        app = LedApp
+//        app = AngleApp
         app.initialize(activity = this)
 
         setContent {
